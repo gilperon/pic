@@ -3,6 +3,25 @@ body {
   padding: 0;
   margin: 0;
   overflow-y: hidden;
+  font-family:
+    ProximaNova,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Ubuntu,
+    Cantarell,
+    Noto Sans,
+    sans-serif,
+    Helvetica,
+    Arial,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Apple Color Emoji,
+    Twemoji Mozilla,
+    Noto Color Emoji,
+    EmojiOne Color,
+    Android Emoji;
 }
 
 .tndr {
@@ -25,11 +44,7 @@ body {
 }
 
 .grid {
-  background-image: linear-gradient(
-      90deg,
-      hsla(0, 0%, 100%, 0.05) 1px,
-      transparent 0
-    ),
+  background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0.05) 1px, transparent 0),
     linear-gradient(180deg, hsla(0, 0%, 100%, 0.05) 1px, transparent 0);
   background-position: center 15px;
   background-size: 32px 32px;

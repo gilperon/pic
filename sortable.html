@@ -26,6 +26,12 @@
         position: relative;
         background-position: center center;
         background-size: cover;
+        transition: transform 0.3s ease;
+      }
+      .grid-item:hover {
+        transform: scale(
+          1.02
+        ); /* Scale the grid item to 120% of its original size */
       }
       .grid-item.dimmed {
         opacity: 0.5;
