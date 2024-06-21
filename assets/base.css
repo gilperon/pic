@@ -1,0 +1,30 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  overflow-y: hidden;
+}
+
+.tndr {
+  --color--brand-gradient-start: #fd267a;
+  --color--brand-gradient-end: #ff6036;
+  background: linear-gradient(0deg, var(--color--brand-gradient-end, inherit), var(--color--brand-gradient-start, inherit));
+  background: linear-gradient(180deg, #ff4586 0%, #f2295b 100%);
+}
+
+/*
+==============================================
+pullUp
+==============================================
+*/
+.pullUp {
+  animation-name: pullUp;
+  -webkit-animation-name: pullUp;
+  animation-duration: 1.1s;
+  -webkit-animation-duration: 1.1s;
+  animation-timing-function: ease-out;
+  -webkit-animation-timing-function: ease-out;
+  transform-origin: 50% 100%;
+  -ms-transform-origin: 50% 100%;
+  -webkit-transform-origin: 50% 100%;
+}
