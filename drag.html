@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draggable Grid</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f0f0f0;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        width: 90%;
+        max-width: 600px;
+      }
+
+      .grid-item {
+        background-color: #4caf50;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+        user-select: none;
+      }
+
+      .grid-item.dragging {
+        opacity: 0.5;
+      }
+
+      .grid-item.over {
+        color: #000;
+        background-color: #fbfbfb;
+        border: 2px dashed black;
+      }
+
+      .grid-item.overx {
+        color: #fff;
+        background-color: #333;
+        border: 2px dashed black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item" draggable="true">1</div>
+      <div class="grid-item" draggable="true">2</div>
+      <div class="grid-item" draggable="true">3</div>
+      <div class="grid-item" draggable="true">4</div>
+      <div class="grid-item" draggable="true">5</div>
+      <div class="grid-item" draggable="true">6</div>
+    </div>
+    <script>
+      const gridItems = document.querySelectorAll(".grid-item");
+
+      gridItems.forEach((item) => {
+        item.addEventListener("dragstart", handleDragStart);
+        item.addEventListener("dragover", handleDragOver);
+        item.addEventListener("dragleave", handleDragLeave);
+        item.addEventListener("drop", handleDrop);
+        item.addEventListener("dragend", handleDragEnd);
+      });
+
+      let dragSrcEl = null;
+
+      function handleDragStart(e) {
+        dragSrcEl = this;
+        e.dataTransfer.effectAllowed = "move";
+        e.dataTransfer.setData("text/html", this.innerHTML);
+
+        this.classList.add("dragging");
+        gridItems.forEach((item) => {
+          if (item !== this) {
+            item.classList.add("over");
+          }
+        });
+      }
+
+      function handleDragOver(e) {
+        if (e.preventDefault) {
+          e.preventDefault();
+        }
+        e.dataTransfer.dropEffect = "move";
+        this.classList.add("overx");
+        return false;
+      }
+
+      function handleDragLeave() {
+        this.classList.remove("overx");
+        //this.classList.remove("over");
+      }
+
+      function handleDrop(e) {
+        if (e.stopPropagation) {
+          e.stopPropagation();
+        }
+
+        if (dragSrcEl !== this) {
+          dragSrcEl.innerHTML = this.innerHTML;
+          this.innerHTML = e.dataTransfer.getData("text/html");
+        }
+        return false;
+      }
+
+      function handleDragEnd() {
+        this.classList.remove("dragging");
+        gridItems.forEach((item) => {
+          item.classList.remove("over");
+          item.classList.remove("overx");
+        });
+      }
+    </script>
+  </body>
+</html>

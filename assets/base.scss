@@ -40,6 +40,19 @@ body {
   zoom: 0.95;
 }
 
+.spin {
+  animation: spin 0.25s linear 2;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /*
 ==============================================
 CSS3 ANIMATION CHEAT SHEET
