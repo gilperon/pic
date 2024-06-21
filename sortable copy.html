@@ -59,48 +59,12 @@
         z-index: 10;
       }
 
-      .grid-item:nth-child(1)::before {
-        content: "";
-        position: absolute;
-        background: url("./assets/images/rank-1.png");
-        left: 10px;
-        top: -16px;
-        background-size: cover;
-        width: 34px;
-        height: 34px;
-      }
-
-      .grid-item:nth-child(2)::before {
-        content: "";
-        position: absolute;
-        background: url("./assets/images/rank-2.png");
-        left: 10px;
-        top: -16px;
-        background-size: cover;
-        width: 34px;
-        height: 34px;
-      }
-
-      .grid-item:nth-child(3)::before {
-        content: "";
-        position: absolute;
-        background: url("./assets/images/rank-3.png");
-        left: 10px;
-        bottom: -16px;
-        background-size: cover;
-        width: 34px;
-        height: 34px;
-      }
-      .grid-item:nth-child(4)::before {
-        content: "";
-        position: absolute;
-        background: url("./assets/images/rank-3.png");
-        left: 10px;
-        bottom: -16px;
-        background-size: cover;
-        width: 34px;
-        height: 34px;
-      }
+      /* .grid-item:nth-child(1)::before {
+        content: "x";
+        position: absolute !important;
+        bottom: 10px !important;
+        right: 10px !important;
+      } */
 
       .grid-item.pic1 {
         background-image: url(./assets/images/user-1.webp);
@@ -118,13 +82,37 @@
   </head>
   <body>
     <div class="grid" id="sortable-grid">
-      <div class="grid-item pic1"></div>
-      <div class="grid-item pic2"></div>
-      <div class="grid-item pic3"></div>
-      <div class="grid-item pic4"></div>
+      <div class="grid-item pic1">
+        <img
+          draggable="false"
+          src="./assets/images/rank-1.png"
+          style="position: absolute; left: 10px; top: -16px; width: 34px"
+        />
+      </div>
+      <div class="grid-item pic2">
+        <img
+          draggable="false"
+          src="./assets/images/rank-2.png"
+          style="position: absolute; left: 10px; top: -16px; width: 34px"
+        />
+      </div>
+      <div class="grid-item pic3">
+        <img
+          draggable="false"
+          src="./assets/images/rank-3.png"
+          style="position: absolute; left: 10px; bottom: -16px; width: 34px"
+        />
+      </div>
+      <div class="grid-item pic4">
+        <img
+          draggable="false"
+          src="./assets/images/rank-4.png"
+          style="position: absolute; left: 10px; bottom: -16px; width: 34px"
+        />
+      </div>
     </div>
 
-    <div class="button-container" style="margin-top: 40px">
+    <div class="button-container" style="margin-top: 20px">
       <button id="show-positions">Show Positions</button>
     </div>
 
