@@ -28,15 +28,16 @@
         background-size: cover;
         transition: transform 0.3s ease;
       }
-      .grid-item:focus {
-        transform: scale(
-          1.05
-        ); /* Scale the grid item to 120% of its original size */
+      .grid-item:hover {
+        transform: scale(1.03);
       }
       .grid-item.dimmed {
         opacity: 0.5;
         background-color: transparent;
         /* border: 3px dashed #eee; */
+      }
+      .grid-item.dimmed:hover {
+        transform: none;
       }
       .grid-item.dimmed::before {
         content: "";
