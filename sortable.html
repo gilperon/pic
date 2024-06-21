@@ -21,11 +21,16 @@
         padding: 20px;
         text-align: center;
         border: 1px solid #ccc;
-        height: 50px;
+        height: 100px;
+        border-radius: 10px;
       }
       .grid-item.dimmed {
         opacity: 0.5;
         background: transparent;
+        border: 3px dashed #bbb;
+      }
+      .grid-item.dragging {
+        border: 3px dashed #333;
       }
     </style>
   </head>
@@ -48,9 +53,11 @@
           animation: 150,
           onStart: function (evt) {
             $(".grid-item").not(evt.item).addClass("dimmed");
+            $(evt.item).addClass("dragging");
           },
           onEnd: function (evt) {
             $(".grid-item").removeClass("dimmed");
+            $(evt.item).removeClass("dragging");
           },
         });
       });
