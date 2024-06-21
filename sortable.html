@@ -20,7 +20,7 @@
         background-color: #f0f0f0;
         padding: 20px;
         text-align: center;
-        border: 1px solid #ccc;
+        outline: 1px solid #ccc;
         height: 200px;
         border-radius: 10px;
         position: relative;
@@ -28,9 +28,9 @@
         background-size: cover;
         transition: transform 0.3s ease;
       }
-      .grid-item:hover {
+      .grid-item:focus {
         transform: scale(
-          1.02
+          1.05
         ); /* Scale the grid item to 120% of its original size */
       }
       .grid-item.dimmed {
@@ -52,7 +52,7 @@
         pointer-events: none;
       }
       .grid-item.dragging {
-        border: 3px solid #f32b5f;
+        outline: 3px solid #f32b5f;
       }
 
       .grid-item.pic1 {
