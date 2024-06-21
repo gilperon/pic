@@ -68,9 +68,16 @@
         item.addEventListener("dragleave", handleDragLeave);
         item.addEventListener("drop", handleDrop);
         item.addEventListener("dragend", handleDragEnd);
+
+        // Add touch event listeners
+        item.addEventListener("touchstart", handleTouchStart);
+        item.addEventListener("touchmove", handleTouchMove);
+        item.addEventListener("touchend", handleTouchEnd);
       });
 
       let dragSrcEl = null;
+      let touchStartX = 0;
+      let touchStartY = 0;
 
       function handleDragStart(e) {
         dragSrcEl = this;
@@ -96,7 +103,6 @@
 
       function handleDragLeave() {
         this.classList.remove("overx");
-        //this.classList.remove("over");
       }
 
       function handleDrop(e) {
@@ -112,6 +118,48 @@
       }
 
       function handleDragEnd() {
+        this.classList.remove("dragging");
+        gridItems.forEach((item) => {
+          item.classList.remove("over");
+          item.classList.remove("overx");
+        });
+      }
+
+      // Touch event handlers
+      function handleTouchStart(e) {
+        e.preventDefault();
+        dragSrcEl = this;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+
+        this.classList.add("dragging");
+        gridItems.forEach((item) => {
+          if (item !== this) {
+            item.classList.add("over");
+          }
+        });
+      }
+
+      function handleTouchMove(e) {
+        e.preventDefault();
+        const touch = e.touches[0];
+        const element = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (element && element.classList.contains("grid-item")) {
+          element.classList.add("overx");
+        }
+      }
+
+      function handleTouchEnd(e) {
+        e.preventDefault();
+        const touch = e.changedTouches[0];
+        const element = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (element && element.classList.contains("grid-item")) {
+          if (dragSrcEl !== element) {
+            dragSrcEl.innerHTML = element.innerHTML;
+            element.innerHTML = dragSrcEl.innerHTML;
+          }
+        }
+
         this.classList.remove("dragging");
         gridItems.forEach((item) => {
           item.classList.remove("over");
