@@ -44,6 +44,10 @@
       <div class="grid-item">Item 6</div>
     </div>
 
+    <div class="button-container">
+      <button id="show-positions">Show Positions</button>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
     <script>
@@ -59,6 +63,14 @@
             $(".grid-item").removeClass("dimmed");
             $(evt.item).removeClass("dragging");
           },
+        });
+
+        $("#show-positions").on("click", function () {
+          var positions = [];
+          $("#sortable-grid .grid-item").each(function (index) {
+            positions.push($(this).text() + " is in position " + (index + 1));
+          });
+          alert(positions.join("\n"));
         });
       });
     </script>
