@@ -2,8 +2,11 @@ html,
 body {
   padding: 0;
   margin: 0;
-  overflow-y: hidden;
-  font-family: ProximaNova, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Helvetica, Arial, Segoe UI Emoji, Segoe UI Symbol, Apple Color Emoji, Twemoji Mozilla, Noto Color Emoji, EmojiOne Color, Android Emoji;
+  overflow-x: hidden;
+  font-family: ProximaNova, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu,
+    Cantarell, Noto Sans, sans-serif, Helvetica, Arial, Segoe UI Emoji,
+    Segoe UI Symbol, Apple Color Emoji, Twemoji Mozilla, Noto Color Emoji,
+    EmojiOne Color, Android Emoji;
 }
 
 .container-fluid {
@@ -36,12 +39,21 @@ body {
 .tndr {
   --color--brand-gradient-start: #fd267a;
   --color--brand-gradient-end: #ff6036;
-  background: linear-gradient(0deg, var(--color--brand-gradient-end, inherit), var(--color--brand-gradient-start, inherit));
+  background: linear-gradient(
+    0deg,
+    var(--color--brand-gradient-end, inherit),
+    var(--color--brand-gradient-start, inherit)
+  );
   background: linear-gradient(180deg, #ff4586 0%, #f2295b 100%);
 }
 
 .grid {
-  background-image: linear-gradient(90deg, hsla(0, 0%, 100%, 0.05) 1px, transparent 0), linear-gradient(180deg, hsla(0, 0%, 100%, 0.05) 1px, transparent 0);
+  background-image: linear-gradient(
+      90deg,
+      hsla(0, 0%, 100%, 0.05) 1px,
+      transparent 0
+    ),
+    linear-gradient(180deg, hsla(0, 0%, 100%, 0.05) 1px, transparent 0);
   background-position: center 15px;
   background-size: 32px 32px;
 }
