@@ -30,7 +30,7 @@
       .grid-item.dimmed {
         opacity: 0.5;
         background-color: transparent;
-        border: 3px dashed #bbb;
+        /* border: 3px dashed #eee; */
       }
       .grid-item.dimmed::before {
         content: "";
@@ -45,29 +45,29 @@
         pointer-events: none;
       }
       .grid-item.dragging {
-        border: 3px dashed #333;
+        border: 3px solid #f32b5f;
       }
 
-      .grid-item:nth-child(1) {
+      .grid-item.pic1 {
         background-image: url(https://stories.cnnbrasil.com.br/wp-content/uploads/sites/9/2024/02/joao-guilherme-1.png);
       }
-      .grid-item:nth-child(2) {
+      .grid-item.pic2 {
         background-image: url(./assets/images/user-2.jpg);
       }
-      .grid-item:nth-child(3) {
+      .grid-item.pic3 {
         background-image: url(./assets/images/user-3.webp);
       }
-      .grid-item:nth-child(4) {
+      .grid-item.pic4 {
         background-image: url(./assets/images/user-4.webp);
       }
     </style>
   </head>
   <body>
     <div class="grid" id="sortable-grid">
-      <div class="grid-item">Item 1</div>
-      <div class="grid-item">Item 2</div>
-      <div class="grid-item">Item 3</div>
-      <div class="grid-item">Item 4</div>
+      <div class="grid-item pic1">Item 1</div>
+      <div class="grid-item pic2">Item 2</div>
+      <div class="grid-item pic3">Item 3</div>
+      <div class="grid-item pic4">Item 4</div>
     </div>
 
     <div class="button-container">
